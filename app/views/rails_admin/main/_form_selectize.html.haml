@@ -38,7 +38,8 @@
 
 :javascript
   const selectizeField = $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}")
-  selectizeField.selectize(selectizeField.data('options'))
+  // selectizeField.selectize(selectizeField.data('options'))
+  selectizeField.selectize()
   if (selectizeField.parents("#modal").length) {
     selectizeField.siblings('.btn').remove();
   } else {

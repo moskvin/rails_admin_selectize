@@ -1,11 +1,9 @@
 require "rails_admin_selectize/engine"
-
-module RailsAdminSelectize
-  # Your code goes here...
-end
-
 require 'selectize-rails'
 require 'rails_admin/config/fields/types/has_many_association'
+
+module RailsAdminSelectize  
+end
 
 module RailsAdmin
   module Config
@@ -24,13 +22,13 @@ module RailsAdmin
   end
 end
 
-# RailsAdmin::Config::Fields.register_factory do |parent, properties, fields|
-#   if properties[:name] == :selectize
-#     fields << RailsAdmin::Config::Fields::Types::Selectize.new(parent, properties[:name], properties)
-#     true
-#   else
-#     false
-#   end
-# end
+RailsAdmin::Config::Fields.register_factory do |parent, properties, fields|
+  if properties.name == :selectize
+    fields << RailsAdmin::Config::Fields::Types::Selectize.new(parent, properties[:name], properties)
+    true
+  else
+    false
+  end
+end
 
 
