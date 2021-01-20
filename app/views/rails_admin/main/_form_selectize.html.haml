@@ -29,7 +29,7 @@
   }
 
 - selected_ids = (hdv = field.form_default_value).nil? ? selected_ids : hdv
-= form.select field.method_name, collection, { selected: selected_ids, object: form.object }, field.html_attributes.reverse_merge({data: { selectize: true, options: js_data.to_json },  multiple: true, style: 'width:25.5em', class: "form-control pull-left"})
+= form.select field.method_name, collection, { selected: selected_ids, object: form.object }, field.html_attributes.reverse_merge({data: { selectize: true, options: js_data.to_json },  multiple: true, style: "max-width: max-content", class: "form-control pull-left"})
 
 - if authorized?(:new, config.abstract_model) && field.inline_add
   - path_hash = { model_name: config.abstract_model.to_param, modal: true }
