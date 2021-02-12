@@ -37,17 +37,16 @@
   = link_to "<i class=\"icon-plus icon-white\"></i> ".html_safe + wording_for(:link, :new, config.abstract_model), '#', data: { link: new_path(path_hash) }, class: "create btn btn-info", style: 'margin-left:10px'
 
 :javascript
-  const selectizeField = $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}")
   // selectizeField.selectize(selectizeField.data('options'))
-  selectizeField.selectize()
-  if (selectizeField.parents("#modal").length) {
-    selectizeField.siblings('.btn').remove();
+  $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}").selectize()
+  if ($("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}").parents("#modal").length) {
+    $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}").siblings('.btn').remove();
   } else {
-    selectizeField.parents('.control-group').first().remoteForm({success: function(e) {
+    $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}").parents('.control-group').first().remoteForm({success: function(e) {
       const lastOption = $(this).find("select option").last().first();
       const value = lastOption.val();
       const text = lastOption.text()
-      const selectized = selectizeField[0].selectize;
+      const selectized = $("##{field.abstract_model.to_s.parameterize.underscore}_#{field.method_name}")[0].selectize;
       selectized.addOption({ text: text, value: value });
       selectized.refreshOptions(false);
       selectized.addItem(value);
