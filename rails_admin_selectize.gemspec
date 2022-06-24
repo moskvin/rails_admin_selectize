@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 6.0"
-  spec.add_dependency "rails_admin", "~> 2.0"
+  spec.add_dependency "rails_admin", "~> 3.0"
   spec.add_dependency "selectize-rails", "~> 0.12"
 end
